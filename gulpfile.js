@@ -2,6 +2,9 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const browserSync = require("browser-sync").create();
 
+// add postCSS
+// add autoprefixer
+
 // compile scss into css
 function compile() {
     // 1. where are my scss files

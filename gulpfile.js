@@ -4,6 +4,7 @@ const browserSync = require("browser-sync").create();
 
 // add postCSS
 // add autoprefixer
+// add javascript compiler
 
 // compile scss into css
 function compile() {

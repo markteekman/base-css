@@ -1,33 +1,62 @@
-const gulp = require("gulp");
-const sass = require("gulp-sass");
+// initialize gulp modules
+const { src, dest, watch, series, parallel } = require("gulp");
+const autoprefixer = require("autoprefixer");
 const browserSync = require("browser-sync").create();
+const cssnano = require("cssnano");
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify");
+const postcss = require("gulp-postcss");
+const sass = require("gulp-sass");
 
-// add postCSS
-// add autoprefixer
-// add javascript compiler
+// file path variables
+const files = {
+	scssPath: "src/scss/**/*.scss",
+	jsPath: "src/js/**/*.js"
+}
 
-// compile scss into css
-function compile() {
-    // 1. where are my scss files
-    return gulp.src("./src/scss/**/*.scss")
-    // 2. pass those files through sass compiler
+// compile scss into css task
+function compileScss() {
+    // 1. location of scss files
+    return src(files.scssPath)
+    // 2. pass scss files through sass compiler and log errors
     .pipe(sass().on("error", sass.logError))
-    // 3. where do I save the compiled CSS?
-    .pipe(gulp.dest("./dist/css"))
-    // 4. stream changes to the browsers
+	// 3. minify css and add vendor prefixes
+	.pipe(postcss([ autoprefixer(), cssnano() ] ))
+    // 4. save css to dist folder
+    .pipe(dest("./dist/css"))
+    // 5. stream changes to the browsers with browsersync
     .pipe(browserSync.stream());
 }
 
-function watch() {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
-    gulp.watch("./src/scss/**/*.scss", compile);
-    gulp.watch("./*.html").on("change", browserSync.reload);
-    gulp.watch("./js/**/*.js").on("change", browserSync.reload);
+// compile js files task
+function compileJs() {
+	// 1. location of js files
+	return src(files.jsPath)
+	// 2. concatinate multiple files into one
+	.pipe(concat("app.js"))
+	// 3. minify js files
+	.pipe(uglify())
+	// 4. save js to dist folder
+	.pipe(dest("./dist/js"));
 }
 
-exports.compile = compile;
-exports.watch = watch;
+// watch for changes in scss, js and html files
+function watcher() {
+    browserSync.init({
+        server: {
+            baseDir: "./",
+			open: false
+        }
+    });
+	
+    watch("./" + files.scssPath, compileScss);
+	watch("./" + files.jsPath, compileJs);
+    watch("./*.html").on("change", browserSync.reload);
+    watch("./src/js/**/*.js").on("change", browserSync.reload);
+}
+
+// default 'gulp' task for terminal
+exports.default = series(
+	parallel(compileScss, compileJs),
+	watcher
+);

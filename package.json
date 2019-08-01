@@ -14,6 +14,7 @@
   "author": "Mark Teekman",
   "license": "MIT",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.0",
     "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
@@ -21,6 +22,9 @@
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.2"
-  }
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "panini": "^1.6.3"
+  },
+  "dependencies": {}
 }

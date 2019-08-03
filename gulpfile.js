@@ -48,7 +48,7 @@ function compileJs() {
 }
 
 // panini flatten html, hdb and handlebars files to dist
-function flatten() {
+function flatten(done) {
 	// 1. location of html files
 	return src(files.htmlPath)
 	// 2. flatten all html files
@@ -61,6 +61,12 @@ function flatten() {
 	}))
 	// 3. save flattend files to dist folder
 	.pipe(dest("./dist"));
+	done();
+}
+
+function refreshPages(done) {
+	panini.refresh();
+	done();
 }
 
 // watch for changes in scss, js and html files
@@ -68,14 +74,14 @@ function watcher() {
     browserSync.init({
         server: {
             baseDir: "./dist",
-        }
+        }, open: false
     });
 	
     watch("./" + files.scssPath, compileScss);
 	watch("./" + files.jsPath, compileJs);
 	// watch("./" + files.htmlPath, flatten);
 	watch("./dist/*.html").on("change", browserSync.reload);
-	watch(["./src/{pages/layouts,partials,helpers,data}/*.html"], panini.refresh);
+	watch("./src/{pages,layouts,partials,helpers,data}/*.html", series( flatten ));
     watch("./src/js/**/*.js").on("change", browserSync.reload);
 }
 

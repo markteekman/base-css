@@ -26,5 +26,7 @@
     "gulp-uglify": "^3.0.2",
     "panini": "^1.6.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "git": "^0.1.5"
+  }
 }

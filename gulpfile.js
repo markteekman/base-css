@@ -10,12 +10,27 @@ const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
 const panini = require("panini");
 
+
 // file path variables
 const files = {
-	htmlPath: "src/pages/**/*.{html,hdb,handlebars}",
+	jsPath: "src/js/**/*.js",
 	scssPath: "src/scss/**/*.scss",
-	jsPath: "src/js/**/*.js"
+	htmlPath: "src/html/pages/**/*.html"
 }
+
+
+// compile js files task
+function compileJs() {
+	// 1. location of js files
+	return src(files.jsPath)
+	// 2. concatinate multiple files into one
+	.pipe(concat("app.js"))
+	// 3. minify js files
+	.pipe(uglify())
+	// 4. save js to dist folder
+	.pipe(dest("./dist/js"));
+}
+
 
 // compile scss into css, minify and prefix css and write sourcemaps task
 function compileScss() {
@@ -35,39 +50,23 @@ function compileScss() {
     .pipe(browserSync.stream());
 }
 
-// compile js files task
-function compileJs() {
-	// 1. location of js files
-	return src(files.jsPath)
-	// 2. concatinate multiple files into one
-	.pipe(concat("app.js"))
-	// 3. minify js files
-	.pipe(uglify())
-	// 4. save js to dist folder
-	.pipe(dest("./dist/js"));
-}
 
 // panini flatten html, hdb and handlebars files to dist
-function flatten(done) {
+function compileHtml() {
 	// 1. location of html files
 	return src(files.htmlPath)
 	// 2. flatten all html files
 	.pipe(panini({
-		root: 'src/pages/',
-		layouts: 'src/layouts/',
-		partials: 'src/partials/',
-		helpers: 'src/helpers/',
-		data: 'src/data/'
+		root: "src/html/pages/",
+		layouts: "src/html/layouts/",
+		partials: "src/html/partials/",
+		helpers: "src/html/helpers/",
+		data: "src/html/data/"
 	}))
 	// 3. save flattend files to dist folder
 	.pipe(dest("./dist"));
-	done();
 }
 
-function refreshPages(done) {
-	panini.refresh();
-	done();
-}
 
 // watch for changes in scss, js and html files
 function watcher() {
@@ -76,26 +75,24 @@ function watcher() {
             baseDir: "./dist",
         }, open: false
     });
-	
-    watch("./" + files.scssPath, compileScss);
+
 	watch("./" + files.jsPath, compileJs);
-	// watch("./" + files.htmlPath, flatten);
+    watch("./" + files.scssPath, compileScss);
 	watch("./dist/*.html").on("change", browserSync.reload);
-	watch("./src/{pages,layouts,partials,helpers,data}/*.html", series( flatten ));
     watch("./src/js/**/*.js").on("change", browserSync.reload);
+	watch("./src/html/{pages,layouts,partials,helpers,data}/*.html", compileHtml);
 }
 
-// copy font awesome js to src js libs
+
+// copy latest font awesome js to src js libs
 function faJs() {
 	return src("node_modules/@fortawesome/fontawesome-free/js/all.min.js")
 	.pipe(dest("src/js/libs"));
 }
 
-exports.flatten = flatten;
-exports.faJs = faJs;
 
 // default 'gulp' task for terminal
 exports.default = series(
-	parallel(compileScss, compileJs, flatten),
+	parallel(compileScss, compileJs, compileHtml),
 	watcher
 );

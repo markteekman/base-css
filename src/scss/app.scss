@@ -1,20 +1,22 @@
-// import font awesome free scss styles
-@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+// ========================================================
+//
+//	-- type: -
+//	-- name: app
+//
+// ========================================================
 
-@import "base/base-";
 
-.svg-inline--fa {
-	font-size: 100px;
-}
+// import normalize scss
+@import "normalize";
 
-$color: #333;
 
-body {
-    color: $color;
-    background: orange;
-}
+// import all base
+@import "base/base-grid";
 
-ul {
-	display: none;
-}
+
+// import all bricks
+@import "brick/brick-";
+
+
+// import all blocks
+@import "block/block-";

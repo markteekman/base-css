@@ -1,0 +1,56 @@
+// ========================================================
+//
+//	-- type: base
+//	-- name: grid
+//
+// ========================================================
+
+
+.page {
+	background-color: #aabecd;
+	width: 700px;
+	height: 100vh;
+	margin: 0 auto;
+	padding: 1em;
+}
+
+// basic grid
+.grid {
+	display: flex;
+	
+	.cell {
+		flex: 1;
+		
+		&.size__half {
+			flex: none;
+			width: 50%;
+		}
+		
+		&.size__third {
+			flex: none;
+			width: 33.333%;
+		}
+		
+		&.size__quarter {
+			flex: none;
+			width: 25%;
+		}
+		
+		> div {
+			background-color: #e7ecf2;
+			padding: 20px;
+			text-align: center;
+			width: 100%;
+			border-radius: 3px;
+		}
+	}
+}
+
+.grid__spacing {
+	margin: -1em 0 1em -1em;
+	
+	.cell {
+		padding: 1em 0 0 1em;
+	}
+}
+

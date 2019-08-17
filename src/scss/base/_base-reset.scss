@@ -1,0 +1,104 @@
+// ========================================================
+//
+//	-- type: base
+//	-- name: reset
+//
+// ========================================================
+
+
+// set box sizing
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
+// reset margins and paddings
+blockquote,
+body,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+li,
+ol,
+p,
+pre,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+// lists
+ul {
+	list-style: none;
+}
+
+// forms and buttons
+button,
+input,
+select,
+textarea {
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+}
+
+input[type="text"],
+textarea {
+	width: 100%;
+}
+
+button,
+input,
+textarea {
+	border: 1px solid gray;
+}
+
+button {
+	padding: 0.75em 1em;
+	border-radius: 0;
+	line-height: 1;
+	background-color: transparent;
+}
+
+button * {
+	pointer-events: none;
+}
+
+// responsive media elements
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+// default table styling
+table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+// hidden atribute
+[hidden] {
+	display: none !important;
+}
+
+// noscript
+noscript {
+	display: block;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}

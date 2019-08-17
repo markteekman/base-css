@@ -14,8 +14,22 @@
   "author": "Mark Teekman",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "del": "^5.0.0",
     "gulp": "^4.0.2",
-    "gulp-sass": "^4.0.2"
+    "gulp-cache": "^1.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "panini": "^1.6.3",
+    "scss-resets": "0.0.8"
+  },
+  "dependencies": {
+    "git": "^0.1.5"
   }
 }

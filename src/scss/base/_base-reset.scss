@@ -6,9 +6,7 @@
 // ========================================================
 
 
-/*******************
- Box Sizing
- *******************/
+// set box sizing
 html {
 	box-sizing: border-box;
 }
@@ -18,9 +16,8 @@ html {
 *::before {
 	box-sizing: inherit;
 }
-/****************************
- Generic Margins and Paddings
- ****************************/
+
+// reset margins and paddings
 blockquote,
 body,
 figure,
@@ -39,15 +36,13 @@ ul {
 	margin: 0;
 	padding: 0;
 }
-/*******************
- Lists
- *******************/
+
+// lists
 ul {
 	list-style: none;
 }
-/*******************
- Forms and buttons
- *******************/
+
+// forms and buttons
 button,
 input,
 select,
@@ -56,18 +51,18 @@ textarea {
 	font: inherit;
 	letter-spacing: inherit;
 }
-/* I usually expand input and textarea to full-width */
+
 input[type="text"],
 textarea {
 	width: 100%;
 }
-/* More friendly border */
+
 button,
 input,
 textarea {
 	border: 1px solid gray;
 }
-/* Some defaults for one-liner buttons */
+
 button {
 	padding: 0.75em 1em;
 	border-radius: 0;
@@ -78,9 +73,8 @@ button {
 button * {
 	pointer-events: none;
 }
-/***********************************
- Easy responsive for media elements
- ***********************************/
+
+// responsive media elements
 embed,
 iframe,
 img,
@@ -90,22 +84,19 @@ video {
 	display: block;
 	max-width: 100%;
 }
-/*******************
- Useful table styles
- *******************/
+
+// default table styling
 table {
 	table-layout: fixed;
 	width: 100%;
 }
-/*******************
- The hidden attribute
- *******************/
+
+// hidden atribute
 [hidden] {
 	display: none !important;
 }
-/*******************
- Noscript
- *******************/
+
+// noscript
 noscript {
 	display: block;
 	margin-bottom: 1em;

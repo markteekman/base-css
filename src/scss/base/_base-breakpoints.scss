@@ -1,0 +1,37 @@
+// ========================================================
+//
+//	-- type: base
+//	-- name: breakpoints
+//
+// ========================================================
+
+
+// breakpoint map
+$breakpoints: (
+	'small':	24em,
+	'medium':	48em,
+	'large':	75em,
+	'huge':		87.5em
+);
+
+// breakpoint mixin
+@mixin breakpoint($breakpoint) {
+	// if key is in map
+	@if map-has-key($breakpoints, $breakpoint) {
+		// set media query
+		@media (min-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	}
+	// if key is not in map
+	@else {
+		@error "Not a correct value, check _base-breakpoints for availible values.";
+	}
+}
+
+// custom breakpoint
+@mixin custom-breakpoint($size) {
+	@media (min-width: $size+"px") {
+		@content;
+	}
+}

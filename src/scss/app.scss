@@ -1,7 +1,7 @@
 // ========================================================
 //
 //	-- type: -
-//	-- name: app
+//	-- desc: app
 //
 // ========================================================
 
@@ -11,14 +11,31 @@
 
 
 // import all base
-@import "base/base-breakpoints";
-@import "base/base-grid";
 @import "base/base-reset";
+@import "base/base-breakpoint";
+@import "base/base-grid";
+@import "base/base-size";
+@import "base/base-space";
+@import "base/base-color";
+@import "base/base-border";
+@import "base/base-elevation";
+@import "base/base-outline";
+@import "base/base-font";
+// @import "base/base-icon";
+@import "base/base-print";
 
 
 // import all bricks
-@import "brick/brick-";
+@import "brick/brick-name";
 
 
 // import all blocks
-@import "block/block-";
+@import "block/block-name";
+
+
+// import all sections
+@import "section/section-name";
+
+
+// import all templates
+@import "template/template-name";

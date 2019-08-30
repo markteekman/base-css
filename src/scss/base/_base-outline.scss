@@ -1,0 +1,15 @@
+// ========================================================
+//
+//	-- type: base
+//	-- desc: outlines
+//
+// ========================================================
+
+
+@mixin outline {
+	outline-color: highlight;
+	outline-width: 2px;
+	outline-style: solid;
+	outline-offset: 1px;
+	outline: -webkit-focus-ring-color auto 5px;
+}

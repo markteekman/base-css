@@ -1,0 +1,68 @@
+// ========================================================
+//
+//	-- type: base
+//	-- desc: font
+//
+// ========================================================
+
+
+body {
+	font-family: "Open Sans", sans-serif;
+	@include size-16;
+	font-weight: 300;
+	
+	h1, h2, h3, h4, h5, h6, p, label, ul, li, legend {
+		color: $neutral-900;
+	}
+	
+	h1, h2 {
+		font-weight: 800;
+	}
+
+	h3, h4, h5, h6 {
+		font-weight: 600;
+	}
+	
+	// headings
+	h1 {
+		@include size-30;
+		@include breakpoint(medium) {
+			@include size-48;
+		}
+	}
+
+	h2 {
+		@include size-24;
+		@include breakpoint(medium) {
+			@include size-36;
+		}
+	}
+
+	h3 {
+		@include size-24;
+		@include breakpoint(medium) {
+			@include size-30;
+		}
+	}
+
+	h4 {
+		@include size-20;
+		@include breakpoint(medium) {
+			@include size-24;
+		}
+	}
+
+	h5 {
+		@include size-18;
+		@include breakpoint(medium) {
+			@include size-20;
+		}
+	}
+
+	h6 {
+		@include size-16;
+		@include breakpoint(medium) {
+			@include size-18;
+		}
+	}
+}

@@ -99,6 +99,13 @@ function cleanUp(done) {
 }
 
 
+// copy font awesome js to src js libs
+function faJs() {
+	return src("node_modules/@fortawesome/fontawesome-free/js/all.min.js")
+	.pipe(dest("src/js/libs"));
+}
+
+
 // watch for changes in scss, js and html files
 function watcher() {
     browserSync.init({
@@ -124,7 +131,7 @@ function watcher() {
 // gulp build task for distribution
 exports.build = series(
 	cleanUp,
-	parallel(compileJs, compileImg, compileScss, compileHtml)
+	parallel(compileJs, compileImg, compileScss, compileHtml, faJs)
 )
 
 

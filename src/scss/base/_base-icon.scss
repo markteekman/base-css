@@ -9,3 +9,8 @@
 // import font awesome free scss styles
 @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+
+// example for global usage
+.svg-inline--fa {
+	@include size-30;
+}

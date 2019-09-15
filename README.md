@@ -92,7 +92,7 @@ This is just an example of how you could use the template. You are, of course, c
 
 ## Inspired by
 
-Many awesome people and organizations on the web, including ZURB Foundation, Solved by Flexbox, Zell, CSS Tricks and many more awesome resources available on the web.
+Many awesome people and organizations on the web, including ZURB Foundation, Solved by Flexbox, Zell, CSS Tricks and many more.
 
 ## Feedback
 

@@ -24,11 +24,19 @@ gulp build
 
 When you use the `gulp` command you can check your project in your browser using BrowserSync by accessing a local address like `http://localhost:8000`. Use the address BrowserSync gives back to you in your command line tool. BrowserSync automatically reloads the browser when changes happen in your HTML, SCSS or JavaScript.
 
-To use the free Font Awesome 5 Solid Icons library that's included in BaseCSS you can use something like `<i class="fas fa-home"></i>` in your HTML. The Font Awesome JavaScript will convert this tag into an accessible SVG which you can easily manipulate through your SCSS files with your own classes or a global `.svg-inline--fa` class. To see all the icons you can use, checkout the [Font Awesome Icon Gallery](https://fontawesome.com/icons?d=gallery). If you don't want to use Font Awesome you can simply remove the package and update your Gulp file by removing the copy function (faJS):
+To use the free Font Awesome 5 Solid Icons library that's included in BaseCSS you can use something like 
+
+```html
+<i class="fas fa-home"></i>
+```
+
+in your HTML. The Font Awesome JavaScript will convert this tag into an accessible SVG which you can easily manipulate through your SCSS files with your own classes or a global `.svg-inline--fa` class. To see all the icons you can use, checkout the [Font Awesome Icon Gallery](https://fontawesome.com/icons?d=gallery). If you don't want to use Font Awesome you can simply remove the package:
 
 ```
 npm remove --save-dev @fortawesome/fontawesome-free
 ```
+
+and update your Gulp file by removing the copy function (faJS):
 
 ```javascript
 // remove this and all faJS instances when you don't want to use font awesome
@@ -102,9 +110,9 @@ This is just an example of how you could use this template. You are, of course, 
 3. Define a spacing system in `/scss/base/_base-space` (or just use the default)
 4. Define a sizing system in `/scss/base/_base-size` (or just use the default)
 5. If needed change your breakpoints in `/scss/base/_base-breakpoint.scss` and the grid width in `/scss/base/_base-grid.scss`
-6. Run `gulp` in your command line
+6. Run `gulp` in your command line to run BrowserSync and start watching for changes
 7. Structure your project partials in `/html/partials`, `/scss/brick` and `/scss/block`
-8. Build up your pages, sections and templates in `/html/pages`, `/scss/sections` and `/scss/templates`
+8. Build up your pages, sections and templates in `/html/pages`, `/scss/section` and `/scss/template`
 9. Write your necessary JavaScript in `/src/js`
 10. Deploy your compiled website from the `/dist` folder to your webserver
 
@@ -114,12 +122,12 @@ This is just an example of how you could use this template. You are, of course, 
 * [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) presets for different ES environments.
 * [@fortawesome/fontawesome-free](https://www.npmjs.com/package/@fortawesome/fontawesome-free) Font Awesome 5 solid icons.
 * [autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) automatically add vendor prefixes to CSS.
-* [browserSync](https://www.npmjs.com/package/browser-sync) watch for changes and refresh the browser on save for HTML and JavaScript and inject SCSS changes without reload.
+* [browserSync](https://www.npmjs.com/package/browser-sync) watch for changes in HTML, SCSS and JavaScript and refresh browser accordingly.
 * [cssnano](https://www.npmjs.com/package/cssnano) minify CSS.
 * [del](https://www.npmjs.com/package/del) delete and rebuild the `/dist` folder when running the `gulp` or `gulp build` command.
 * [gulp](https://www.npmjs.com/package/gulp) task automation of Gulp plugins.
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) use babel pipe task in gulp file.
-* [gulp-cache](https://www.npmjs.com/package/gulp-cache) cache the image.
+* [gulp-cache](https://www.npmjs.com/package/gulp-cache) cache images.
 * [gulp-concat](https://www.npmjs.com/package/gulp-concat) concatenate all JavaScript into one .js file.
 * [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) automatically optimize images.
 * [gulp-postcss](https://www.npmjs.com/package/gulp-postcss) use autoprefixer and cssnano tasks.
@@ -135,7 +143,7 @@ Many awesome people and organizations around the world, including ZURB Foundatio
 
 ## Feedback
 
-If you've got any ideas on how to improve this template then let me know! I'm always looking on how to improve and standardize my work so I can focus on what matters: creating new things :)
+If you've got any ideas on how to improve this template then let me know! I'm always looking on how to optimize and standardize my work so I can focus on what matters: creating new things :)
 
 ## License
 

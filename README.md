@@ -22,6 +22,12 @@ Or just build your project once without watching for changes:
 gulp build
 ```
 
+If you get an error about a missing binding run:
+
+```
+npm rebuild node-sass
+```
+
 When you use the `gulp` command you can check your project in your browser using BrowserSync by accessing a local address like `http://localhost:8000`. Use the address BrowserSync gives back to you in your command line tool. BrowserSync automatically reloads the browser when changes happen in your HTML, SCSS or JavaScript.
 
 To use the free Font Awesome 5 Solid Icons library that's included in BaseCSS you can use something like 

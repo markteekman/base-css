@@ -9,6 +9,7 @@ const autoprefixer	= require("autoprefixer");
 const browserSync	= require("browser-sync").create();
 const cssnano		= require("cssnano");
 const del			= require("del");
+const babel			= require("gulp-babel");
 const cache			= require("gulp-cache");
 const concat		= require("gulp-concat");
 const imagemin		= require("gulp-imagemin");
@@ -29,7 +30,7 @@ const files = {
 
 
 // optimize images in src folder
-function compileImg() {
+const compileImg = () => {
 	// 1. location of img files
 	return src(files.imgPath)
 	// 2. run files through imagemin plugin
@@ -41,25 +42,29 @@ function compileImg() {
 
 // compile js files task
 function compileJs() {
-	// 1. location of js files
-	return src(files.jsPath)
-	// 2. concatinate multiple files into one
+	// 1. location of js files, exclude all min.js files
+	return src([files.jsPath, "!src/js/**/*.min.js"])
+	// 2. compile es2016 to es2015 with babel
+	.pipe(babel({
+		presets: ['@babel/env'],
+	}))
+	// 3. concatinate multiple files into one
 	.pipe(concat("app.js"))
-	// 3. minify js files
+	// 4. minify js files
 	.pipe(uglify())
-	// 4. save js to dist folder
+	// 5. save js to dist folder
 	.pipe(dest("./dist/js"));
 }
 
 
 // compile scss into css, minify and prefix css and write sourcemaps task
-function compileScss() {
-    // 1. location of scss files
-    return src(files.scssPath)
+const compileScss = () => {
+	// 1. location of scss files
+	return src(files.scssPath)
 	// 2. init sourcemaps
 	.pipe(sourcemaps.init())
-    // 3. pass scss files through sass compiler and log errors
-    .pipe(sass({
+	// 3. pass scss files through sass compiler and log errors
+	.pipe(sass({
 		// 4. include different resets via scss resets
 		includePaths: require("scss-resets").includePaths
 	}).on("error", sass.logError))
@@ -67,15 +72,15 @@ function compileScss() {
 	.pipe(postcss([ autoprefixer(), cssnano() ] ))
 	// 6. write to sourcemaps
 	.pipe(sourcemaps.write())
-    // 7. save css to dist folder
-    .pipe(dest("./dist/css"))
-    // 8. stream changes to the browsers with browsersync
-    .pipe(browserSync.stream());
+	// 7. save css to dist folder
+	.pipe(dest("./dist/css"))
+	// 8. stream changes to the browsers with browsersync
+	.pipe(browserSync.stream());
 }
 
 
 // panini flatten html, hdb and handlebars files to dist
-function compileHtml() {
+const compileHtml = () => {
 	// 1. location of html files
 	return src(files.htmlPath)
 	// 2. flatten all html files
@@ -93,38 +98,38 @@ exports.compileHtml = compileHtml;
 
 
 // cleanup dist folder when running new build
-function cleanUp(done) {
+const cleanUp = (done) => {
 	return del("./dist")
 	done();
 }
 
 
 // copy font awesome js to src js libs
-function faJs() {
+const faJs = () => {
 	return src("node_modules/@fortawesome/fontawesome-free/js/all.min.js")
 	.pipe(dest("src/js/libs"));
 }
 
 
 // watch for changes in scss, js and html files
-function watcher() {
-    browserSync.init({
-        server: {
-            baseDir: "./dist",
-        }, open: false
-    });
+const watcher = () => {
+	browserSync.init({
+		server: {
+			baseDir: "./dist",
+		}, open: false
+	});
 
 	watch("./" + files.jsPath, compileJs);
 	watch("./" + files.imgPath, compileImg);
-    watch("./" + files.scssPath, compileScss);
-	
+	watch("./" + files.scssPath, compileScss);
+
 	// watch("./src/{pages,layouts,partials,helpers,data}/*.html", compileHtml);
 	// watch("./dist/*.html").on("change", browserSync.reload);
-	
+
 	watch("src/html/pages/*").on("change", series(compileHtml, browserSync.reload));
 	watch("src/html/{layouts,includes,helpers,data}/*").on("change", series(async () => { await panini.refresh() }, compileHtml, browserSync.reload));
-	
-    watch("./src/js/**/*.js").on("change", browserSync.reload);
+
+	watch("./src/js/**/*.js").on("change", browserSync.reload);
 }
 
 

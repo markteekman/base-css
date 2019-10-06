@@ -139,6 +139,6 @@ exports.build = series(
 // default 'gulp' task for terminal
 exports.default = series(
 	cleanUp,
-	parallel(compileJs, compileImg, compileScss, compileHtml, faJS),
+	parallel(compileJs, compileImg, compileScss, compileHtml, faJs),
 	watcher
 );

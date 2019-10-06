@@ -7,16 +7,16 @@
 
 
 .container {
-	// color guide helper for grid
-	background-color: $primary-100;
+	// color guide helper for grid container (remove when no longer needed)
+	background-color: $neutral-100;
 	width: 100%;
 	margin: 0 auto;
 	padding: 1em;
-	
+
 	@include breakpoint(large) {
 		width: 1200px;
 	}
-	
+
 	&.full {
 		width: 100%;
 	}
@@ -26,11 +26,11 @@
 .grid {
 	display: flex;
 	flex-wrap: wrap;
-	
+
 	// grid gutters
 	&.spacing {
 		margin: -1em 0 1em -1em;
-		
+
 		.cell {
 			padding: 1em 0 0 1em;
 		}
@@ -48,26 +48,26 @@
 	&.center {
 		align-items: center;
 	}
-	
+
 	// cell behaviour
 	.cell {
 		flex: 0 0 100%;
-		
+
 		// cell inner
 		.inner {
-			// color guide helper for grid
+			// color guide helper for cell inner (remove when no longer needed)
 			background-color: $secondary-200;
 			padding: $space-16;
 			text-align: center;
 			width: 100%;
 			border-radius: 3px;
 		}
-		
+
 		// nested grid
 		.grid {
 			margin-bottom: 0;
 		}
-		
+
 		// cell modifiers
 		&.top {
 			align-self: flex-start;
@@ -81,66 +81,66 @@
 			align-self: center;
 		}
 	}
-	
+
 	// small breakpoint
 	&.expand-for-small {
 		@include breakpoint(small) {
 			.cell {
 				flex: 1;
-				
+
 				// sizings
 				&.half {
 					flex: 0 0 50%;
 				}
-				
+
 				&.third {
 					flex: 0 0 33.3333%;
 				}
-				
+
 				&.quarter {
 					flex: 0 0 25%;
 				}
 			}
 		}
 	}
-	
+
 	// medium breakpoint
 	&.expand-for-medium {
 		@include breakpoint(medium) {
 			.cell {
 				flex: 1;
-				
+
 				// sizings
 				&.half {
 					flex: 0 0 50%;
 				}
-				
+
 				&.third {
 					flex: 0 0 33.3333%;
 				}
-				
+
 				&.quarter {
 					flex: 0 0 25%;
 				}
 			}
 		}
 	}
-	
+
 	// large breakpoint
-	&.expand-for-medium {
+	&.expand-for-large {
 		@include breakpoint(large) {
 			.cell {
 				flex: 1;
-				
+
 				// sizings
 				&.half {
 					flex: 0 0 50%;
 				}
-				
+
 				&.third {
 					flex: 0 0 33.3333%;
 				}
-				
+
 				&.quarter {
 					flex: 0 0 25%;
 				}
@@ -148,4 +148,3 @@
 		}
 	}
 }
-

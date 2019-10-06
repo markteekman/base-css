@@ -6,7 +6,31 @@
 // ========================================================
 
 
-$small-border-radius: 3px;
-$large-border-radius: 6px;
-$small-border-width: 2px;
-$large-border-width: 3px;
+// border mixins
+@mixin border-small($color) {
+	border-width: $border-small;
+	border-style: $border-style;
+	border-color: $color;
+}
+
+@mixin border-medium($color) {
+	border-width: $border-medium;
+	border-style: $border-style;
+	border-color: $color;
+}
+
+@mixin border-large($color) {
+	border-width: $border-large;
+	border-style: $border-style;
+	border-color: $color;
+}
+
+
+// border radius mixins
+@mixin radius-small {
+	border-radius: $radius-small;
+}
+
+@mixin radius-large {
+	border-radius: $radius-large;
+}

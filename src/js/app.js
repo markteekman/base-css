@@ -5,4 +5,4 @@ const showMessage = () => {
 	return message;
 }
 
-console.log(showMessage());
+// console.log(showMessage());

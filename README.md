@@ -22,7 +22,7 @@ Or just build your project once without watching for changes:
 gulp build
 ```
 
-When you use the `gulp` command you can work on your project in your browser using browserSync by accessing a local address like `localhost://8000`. Use the address browserSync gives back to you in your command line tool. browserSync automatically reloads the browser when changes happen in your HTML, SCSS or JavaScript.
+When you use the `gulp` command you can check your project in your browser using BrowserSync by accessing a local address like `http://localhost:8000`. Use the address BrowserSync gives back to you in your command line tool. BrowserSync automatically reloads the browser when changes happen in your HTML, SCSS or JavaScript.
 
 To use the free Font Awesome 5 Solid Icons library that's included in BaseCSS you can use something like `<i class="fas fa-home"></i>` in your HTML. The Font Awesome JavaScript will convert this tag into an accessible SVG which you can easily manipulate through your SCSS files with your own classes or a global `.svg-inline--fa` class. To see all the icons you can use, checkout the [Font Awesome Icon Gallery](https://fontawesome.com/icons?d=gallery). If you don't want to use Font Awesome you can simply remove the package and update your Gulp file by removing the copy function (faJS):
 

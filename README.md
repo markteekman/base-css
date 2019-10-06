@@ -10,7 +10,7 @@ Either hit the **Use this template** button at the top of this page to create a 
 npm install
 ```
 
-After that run either Gulp for building your project and automatically watch for changes in your HTML, SCSS and JavaScript:
+Now either run Gulp for building your project and automatically watch for changes in your HTML, SCSS and JavaScript:
 
 ```
 gulp

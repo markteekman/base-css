@@ -122,10 +122,6 @@ const watcher = () => {
 	watch("./" + files.jsPath, compileJs);
 	watch("./" + files.imgPath, compileImg);
 	watch("./" + files.scssPath, compileScss);
-
-	// watch("./src/{pages,layouts,partials,helpers,data}/*.html", compileHtml);
-	// watch("./dist/*.html").on("change", browserSync.reload);
-
 	watch("src/html/pages/*").on("change", series(compileHtml, browserSync.reload));
 	watch("src/html/{layouts,partials}/**/*").on("change", series(async () => { await panini.refresh() }, compileHtml, browserSync.reload));
 
@@ -143,6 +139,6 @@ exports.build = series(
 // default 'gulp' task for terminal
 exports.default = series(
 	cleanUp,
-	parallel(compileJs, compileImg, compileScss, compileHtml),
+	parallel(compileJs, compileImg, compileScss, compileHtml, faJS),
 	watcher
 );

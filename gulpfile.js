@@ -127,7 +127,7 @@ const watcher = () => {
 	// watch("./dist/*.html").on("change", browserSync.reload);
 
 	watch("src/html/pages/*").on("change", series(compileHtml, browserSync.reload));
-	watch("src/html/{layouts,includes,helpers,data}/*").on("change", series(async () => { await panini.refresh() }, compileHtml, browserSync.reload));
+	watch("src/html/{layouts,partials}/**/*").on("change", series(async () => { await panini.refresh() }, compileHtml, browserSync.reload));
 
 	watch("./src/js/**/*.js").on("change", browserSync.reload);
 }

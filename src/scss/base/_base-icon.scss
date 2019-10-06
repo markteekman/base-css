@@ -10,7 +10,44 @@
 @import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 @import "node_modules/@fortawesome/fontawesome-free/scss/solid";
 
-// example for global usage
+
+// size tokens
 .svg-inline--fa {
-	@include size-30;
+
+	&.size-10 {
+		@include size-10;
+	}
+	&.size-12 {
+		@include size-12;
+	}
+	&.size-14 {
+		@include size-14;
+	}
+	&.size-16 {
+		@include size-16;
+	}
+	&.size-18 {
+		@include size-18;
+	}
+	&.size-20 {
+		@include size-20;
+	}
+	&.size-24 {
+		@include size-24;
+	}
+	&.size-30 {
+		@include size-30;
+	}
+	&.size-36 {
+		@include size-36;
+	}
+	&.size-48 {
+		@include size-48;
+	}
+	&.size-60 {
+		@include size-60;
+	}
+	&.size-72 {
+		@include size-72;
+	}
 }

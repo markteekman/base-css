@@ -1,6 +1,6 @@
 # BaseCSS
 
-A responsive front-end boilerplate that uses Gulp, a simple Flexbox grid and basic Design System patterns to get you working on new ideas faster instead of having to set up a lot of stuff over and over again (DRY). The template uses a couple of Gulp plugins to get you up and running and creating a new project in no time. The template contains a SCSS structure with a couple of foundations for each project you create (like colors, fonts, grid, breakpoints, shadows, spacing, sizing, borders etc.). BaseCSS runs your HTML, SCSS, JavaScript and images from the `/src` folder to a directly distributable `/dist` folder.
+A responsive front-end boilerplate that uses Gulp, a simple Flexbox grid and basic Design System patterns to get you working on new ideas faster instead of having to set up a lot of stuff over and over again (DRY). The template uses a couple of Gulp plugins to get you up and running and creating a new project in no time. The SCSS contains a couple of foundations for each project you create (like colors, fonts, grid, breakpoints, shadows, spacing, sizing, borders etc.). BaseCSS runs your HTML, SCSS, JavaScript and images from the `/src` folder to a directly distributable `/dist` folder.
 
 ## How to use
 

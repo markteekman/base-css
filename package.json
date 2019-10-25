@@ -1,5 +1,5 @@
 {
-  "name": "@mark-teekman/base-css",
+  "name": "@markteekman/base-css",
   "version": "1.0.0",
   "description": "Responsive front-end HTML and SCSS starter template using a simple Flexbox Grid, basic Design System patterns and ES6 support for writing JavaScript functions. Powered by Gulp.",
   "main": "index.js",

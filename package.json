@@ -4,7 +4,7 @@
   "description": "Responsive front-end HTML and SCSS starter template using a simple Flexbox Grid, basic Design System patterns and ES6 support for writing JavaScript functions. Powered by Gulp.",
   "main": "index.js",
   "scripts": {
-	"test": "echo \"Error: no test specified\" && exit 1"
+	"test": "echo \"No test specified\""
   },
   "keywords": [
 	"flexbox",

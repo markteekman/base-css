@@ -4,7 +4,7 @@ A responsive front-end boilerplate that uses Gulp, a simple Flexbox grid and bas
 
 ## How to use
 
-Either hit the **Use this template** button at the top of this page to create a repository based on this template or clone/download BaseCSS to your local computer. Start with installing the necessary Gulp plugins by typing the following command in the command line from within your local project folder:
+Either hit the **Use this template** button at the top of this page to create a repository based on this template or clone/download BaseCSS to your local computer (on GitHub). Start with installing the necessary Gulp plugins by typing the following command in the command line from within your local project folder:
 
 ```
 npm install
@@ -30,7 +30,7 @@ npm rebuild node-sass
 
 When you use the `gulp` command you can check your project in your browser using BrowserSync by accessing a local address like `http://localhost:8000`. Use the address BrowserSync gives back to you in your command line tool. BrowserSync automatically reloads the browser when changes happen in your HTML, SCSS or JavaScript.
 
-To use the free Font Awesome 5 Solid Icons library that's included in BaseCSS you can use something like 
+To use the free Font Awesome 5 Solid Icons library that's included in BaseCSS you can use something like
 
 ```html
 <i class="fas fa-home"></i>
